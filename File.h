@@ -10,8 +10,11 @@
 
 class File {
 public:
-    explicit File(char* filename);
+    explicit File(const char* filename);
     ~File();
+    int getFileSizeInBytes() {
+        return fileSize;
+    }
 
 private:
     int fileSize;

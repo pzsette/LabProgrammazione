@@ -4,7 +4,7 @@
 
 #include "File.h"
 
-File::File(char *filename) {
+File::File(const char *filename) {
     file = fopen(filename, "r");
     if (!file) {
         throw std::runtime_error("Could not open file!");

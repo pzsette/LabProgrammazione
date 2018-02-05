@@ -7,9 +7,9 @@
 
 
 class Observer {
-protected:
+public:
     virtual ~Observer() {};
-    virtual void updat() =0;
+    virtual void update() =0;
 };
 
 
