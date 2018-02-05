@@ -42,10 +42,6 @@ private:
     bool loadingCompleted;
     QString fileName;
     int fileSize;
-
-
-
-
 };
 
 

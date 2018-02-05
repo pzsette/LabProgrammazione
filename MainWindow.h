@@ -8,17 +8,30 @@
 #include <QMainWindow>
 #include <QTextEdit>
 #include <QLabel>
+#include "ResourcesLoader.h"
+#include "Observer.h"
 
 //classe che gestisce la grafica della applicazione
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow, public Observer {
 public:
-    MainWindow ();
+    MainWindow (ResourcesLoader * loader);
+
+    virtual ~MainWindow() {
+        loader->removeObserver(this);
+    }
+
+    ResourcesLoader* getResouceLoader () {
+        return loader;
+    }
+
+    virtual void update() override ;
+
+    void startLoadingResources ();
 
 private:
     QLabel * text;
-
-
+    ResourcesLoader * loader;
 };
 
 
