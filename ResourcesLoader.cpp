@@ -18,7 +18,8 @@ void ResourcesLoader::removeObserver(Observer *o) {
 
 void ResourcesLoader::notifyObserver() const {
     for (const auto &itr : observers) {
-        itr->update();
+        //itr->update();
+        itr->update(fileName);
     }
 }
 

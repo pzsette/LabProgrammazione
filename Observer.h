@@ -9,7 +9,7 @@
 class Observer {
 public:
     virtual ~Observer() {};
-    virtual void update() =0;
+    virtual void update(QString x) =0;
 };
 
 

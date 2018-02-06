@@ -9,6 +9,5 @@ int main(int argc, char *argv[]) {
     MainWindow finestra(&loader);
     loader.registerObserver(&finestra);
     finestra.show();
-    finestra.startLoadingResources();
     return app.exec();
 }

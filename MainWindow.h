@@ -8,12 +8,16 @@
 #include <QMainWindow>
 #include <QTextEdit>
 #include <QLabel>
+#include <QPushButton>
+#include <QDesktopWidget>
+#include <QProgressBar>
 #include "ResourcesLoader.h"
 #include "Observer.h"
 
 //classe che gestisce la grafica della applicazione
 
 class MainWindow : public QMainWindow, public Observer {
+    Q_OBJECT
 public:
     MainWindow (ResourcesLoader * loader);
 
@@ -25,13 +29,18 @@ public:
         return loader;
     }
 
-    virtual void update() override ;
+    virtual void update(QString x) override ;
 
+private slots:
     void startLoadingResources ();
 
 private:
-    QLabel * text;
     ResourcesLoader * loader;
+
+    QLabel * text;
+    QPushButton * button;
+    QProgressBar * progressBar;
+    QTextEdit * textBox;
 };
 
 

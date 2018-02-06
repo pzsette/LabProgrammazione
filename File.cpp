@@ -12,7 +12,7 @@ File::File(const char *filename) {
         fseek(file, 0, SEEK_END);
         fileSize = int(ftell(file));
         int displayedSize = fileSize / 1024;
-        std::cout << "File \"" << filename << "\" opened succesfully: size of file : " << displayedSize << "kb." << std::endl;
+        std::cout << "File \"" << filename << "\" opened succesfully. Size of file: " << displayedSize << "kb." << std::endl;
     }
 }
 
