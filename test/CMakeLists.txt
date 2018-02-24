@@ -1,0 +1,7 @@
+add_subdirectory(./lib/googletest)
+set(gtest_SOURCE_DIR, ./lib/googletest)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+set(SOURCE_FILES runAllTests.cpp testObserver.cpp testResourcesLoader.cpp testFile.cpp)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "/Users/Pietro/Desktop/Lab_Programmazione/cmake-build-debug")
+add_executable(runAllTests ${SOURCE_FILES})
+target_link_libraries(runAllTests gtest gtest_main core)

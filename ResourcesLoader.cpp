@@ -18,8 +18,8 @@ void ResourcesLoader::removeObserver(Observer *o) {
 
 void ResourcesLoader::notifyObserver() const {
     for (const auto &itr : observers) {
-        //itr->update();
-        itr->update(fileName);
+        itr->update();
+        //itr->update(fileName);
     }
 }
 
@@ -39,9 +39,18 @@ void ResourcesLoader::loadFiles(std::vector<const char *> fileNames) throw(std::
 }
 
 void ResourcesLoader::handleFile(const char * itr) {
-    File file(itr);
-    fileName = QString(itr);
-    fileSize = file.getFileSizeInBytes();
-    loadingCompleted = true;
-    notifyObserver();
+    try {
+        File file(itr);
+        fileName = QString(itr);
+        fileSize = file.getFileSizeInBytes();
+        loadingCompleted = true;
+        notifyObserver();
+    } catch (std::runtime_error &e) {
+        std::cerr << e.what() << std::endl;
+        fileName = QString(itr);
+        loadingCompleted = false;
+        notifyObserver();
+    } catch (...) {
+        std::cerr << "Unknow exception caught!" << std::endl;
+    }
 }

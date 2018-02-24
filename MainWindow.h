@@ -29,7 +29,7 @@ public:
         return loader;
     }
 
-    virtual void update(QString x) override ;
+    virtual void update() override ;
 
 private slots:
     void startLoadingResources ();

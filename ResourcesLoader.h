@@ -27,8 +27,12 @@ public:
         return numOfResources;
     }
 
-    bool isLoadingComlited() {
+    bool isLoadingCompleted() {
         return loadingCompleted;
+    }
+
+    const QString &getFilename() const {
+        return fileName;
     }
 
     int getFileSize() {

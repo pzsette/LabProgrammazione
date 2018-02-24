@@ -4,15 +4,12 @@
 
 #include "File.h"
 
-File::File(const char *filename) {
-    file = fopen(filename, "r");
+File::File(const char *filename) : file(fopen(filename, "r")), fileSize(0)  {
     if (!file) {
         throw std::runtime_error("Could not open file!");
     } else {
         fseek(file, 0, SEEK_END);
-        fileSize = int(ftell(file));
-        int displayedSize = fileSize / 1024;
-        std::cout << "File \"" << filename << "\" opened succesfully. Size of file: " << displayedSize << "kb." << std::endl;
+        fileSize = static_cast<int>(ftell(file));
     }
 }
 
